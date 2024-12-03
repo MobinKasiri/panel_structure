@@ -1,6 +1,8 @@
-import { Box, Collapse, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { useApiCall } from "../../lib/services/apicall";
-import { useState } from "react";
+
+import { useLocation, useNavigate } from "react-router-dom";
+import { LSidebar } from "design_system";
 
 interface MenuItem {
   icon: string;
@@ -16,50 +18,36 @@ interface Menu {
   SideBarMenu: MenuItem[];
 }
 
-const RecursiveSideBar = ({ data }: { data: MenuItem }) => {
-  const [open, openSet] = useState(false);
-
-  const switchCollapse = () => {
-    openSet((prev) => !prev);
-  };
-
-  if (!data?.menuChildren?.length) {
-    return <Typography>{data?.title}</Typography>;
-  }
-  return (
-    <>
-      <Typography onClick={switchCollapse}>{data?.title}</Typography>
-      <Collapse in={open}>
-        {data?.menuChildren?.length ? (
-          <Box>
-            {data.menuChildren?.map((item, index) => (
-              <RecursiveSideBar key={index} data={item} />
-            ))}
-          </Box>
-        ) : null}
-      </Collapse>
-    </>
-  );
-};
-
 const Sidebar = () => {
-  const { data } = useApiCall<Menu>({
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const { data, isLoading } = useApiCall<Menu>({
     url: "/api/v1/menu/",
+    shouldCallApi: false,
   });
 
   return (
     <Box
-      sx={{
-        backgroundColor: "tomato",
-        width: 300,
+      sx={(theme) => ({
+        overflowY: "auto",
+        overflowX: "hidden",
+        height: "calc(100vh - 64px)",
         position: "sticky",
         top: 0,
-        height: 100,
-      }}
+        borderLeft: "1px solid",
+        borderRight: "1px solid",
+        borderColor: theme.palette?.grey["400"],
+        pb: 4,
+        direction: "ltr",
+        width: 270,
+      })}
     >
-      {data?.SideBarMenu?.map((item, index) => (
-        <RecursiveSideBar key={index} data={item} />
-      ))}
+      <LSidebar
+        loading={isLoading}
+        pathname={pathname}
+        navigate={navigate}
+        routes={data?.SideBarMenu ?? []}
+      />
     </Box>
   );
 };

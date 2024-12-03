@@ -1,0 +1,56 @@
+@font-face {
+  font-family: "Peyda";
+  src: url("../../assets/fonts/PeydaFaNum-Thin.ttf");
+  font-weight: 100;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Peyda";
+  src: url("../../assets/fonts/PeydaFaNum-ExtraLight.ttf");
+  font-weight: 200;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Peyda";
+  src: url("../../assets/fonts/PeydaFaNum-Light.ttf");
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Peyda";
+  src: url("../../assets/fonts/PeydaFaNum-Regular.ttf");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Peyda";
+  src: url("../../assets/fonts/PeydaFaNum-Medium.ttf");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Peyda";
+  src: url("../../assets/fonts/PeydaFaNum-SemiBold.ttf");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Peyda";
+  src: url("../../assets/fonts/PeydaFaNum-Bold.ttf");
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Peyda";
+  src: url("../../assets/fonts/PeydaFaNum-ExtraBold.ttf");
+  font-weight: 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Peyda";
+  src: url("../../assets/fonts/PeydaFaNum-Black.ttf");
+  font-weight: 900;
+  font-display: swap;
+}

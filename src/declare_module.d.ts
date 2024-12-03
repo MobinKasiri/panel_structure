@@ -1,7 +1,14 @@
-import { PaletteColorOptions } from "@mui/material";
+import { Color, PaletteColorOptions } from "@mui/material";
 import React from "react";
 
 declare module "@mui/material/styles" {
+  interface PaletteColor extends Color {
+    light: string;
+    main: string;
+    dark: string;
+    contrastText: string;
+  }
+
   interface Palette {
     gray: PaletteColorOptions;
     pink: PaletteColorOptions;

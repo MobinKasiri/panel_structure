@@ -7,9 +7,9 @@ import { Outlet } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 
 const Layout = () => {
-  if (!accessTokenExist()) {
-    return <Navigate to="/" />;
-  }
+  // if (!accessTokenExist()) {
+  //   return <Navigate to="/" />;
+  // }
 
   return (
     <Box>
